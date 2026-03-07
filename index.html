@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OtoSmart Academy - SMK Otomotif</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c3e50">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>OtoSmart Academy</h1>
+            <p>SMKN 1 Robatal - Program Keahlian Otomotif</p>
+        </header>
+
+        <main>
+            <section class="grade-section">
+                <h2>Kelas X: Dasar Otomotif</h2>
+                <div class="menu-grid">
+                    <div class="menu-card color-1">
+                        <h3>K3LH</h3>
+                        <p>Keselamatan & Budaya Kerja</p>
+                    </div>
+                    <div class="menu-card color-1">
+                        <h3>Alat Ukur</h3>
+                        <p>Jangka Sorong & Mikrometer</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grade-section">
+                <h2>Kelas XI: Kompetensi Inti</h2>
+                <div class="menu-grid">
+                    <div class="menu-card color-2">
+                        <h3>Engine</h3>
+                        <p>Pemeliharaan Mesin</p>
+                    </div>
+                    <div class="menu-card color-2">
+                        <h3>Sasis</h3>
+                        <p>Rem, Suspensi & Roda</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grade-section">
+                <h2>Kelas XII: Spesialisasi</h2>
+                <div class="menu-grid">
+                    <div class="menu-card color-3">
+                        <h3>EFI / EMS</h3>
+                        <p>Sistem Injeksi & Diagnosa</p>
+                    </div>
+                    <div class="menu-card color-3" id="dtcBtn">
+                        <h3>Daftar DTC</h3>
+                        <p>Cek Kode Kerusakan Sensor</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grade-section">
+                <h2>🎮 Ruang Praktik Virtual</h2>
+                <div class="menu-grid">
+                    <div class="menu-card simulator-card" id="startSim">
+                        <h3>Diagnosa Cepat</h3>
+                        <p>Uji kemampuan Troubleshooting-mu!</p>
+                    </div>
+                </div>
+            </section>
+
+            <div id="completionZone" style="display:none; text-align:center; margin-top: 20px;">
+                <button id="claimBtn" class="btn-claim">Ambil Sertifikat Kelulusan</button>
+            </div>
+        </main>
+    </div>
+
+    <div id="materialModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Judul Materi</h2>
+            <hr>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <div id="simModal" class="modal">
+        <div class="modal-content sim-content">
+            <span class="close-sim" onclick="closeSim()">&times;</span>
+            <h2>🛠️ Kasus Diagnosa</h2>
+            <hr>
+            <div id="simScreen">
+                <p id="scenarioText">Memuat kasus...</p>
+                <div id="optionsContainer"></div>
+            </div>
+            <div id="simFeedback" style="margin-top:15px; font-weight:bold;"></div>
+        </div>
+    </div>
+
+    <div id="certModal" class="modal">
+        <div class="certificate-card" id="certificate">
+            <div class="cert-border">
+                <div class="cert-content">
+                    <p class="cert-school">SMKN 1 ROBATAL</p>
+                    <h1>SERTIFIKAT KELULUSAN</h1>
+                    <p>Diberikan kepada:</p>
+                    <h2 id="studentNameDisplay">[Nama Murid]</h2>
+                    <p>Telah menyelesaikan seluruh modul pembelajaran</p>
+                    <h3>TEKNIK OTOMOTIF</h3>
+                    <div class="cert-footer">
+                        <p>Maret, 2026</p>
+                        <p>OtoSmart Academy</p>
+                    </div>
+                </div>
+            </div>
+            <button class="close-cert" onclick="closeCert()">Tutup</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+            .then(() => console.log("Aplikasi Siap Offline!"));
+        }
+    </script>
+</body>
+</html>
